@@ -18,121 +18,708 @@
             --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
             --radius: 16px; --radius-sm: 10px;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
         .hidden { display: none !important; }
 
         /* ===== LOGIN ===== */
         .login-screen { min-height: 100vh; display: flex; }
-        .login-brand { flex: 1.1; background: linear-gradient(160deg, #0F1923 0%, #1E2D3D 55%, #2a1a1a 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 3rem 2.5rem; position: relative; overflow: hidden; }
-        .login-brand::before { content: ''; position: absolute; top: -100px; right: -100px; width: 320px; height: 320px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.04); }
-        .login-brand::after { content: ''; position: absolute; bottom: -80px; left: -60px; width: 240px; height: 240px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.03); }
+        .login-brand {
+            flex: 1.1;
+            background: linear-gradient(160deg, #0F1923 0%, #1E2D3D 55%, #2a1a1a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .login-brand::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        .login-brand::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -60px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
         .brand-content { position: relative; z-index: 1; text-align: center; }
-        .brand-content .brand-logo { font-family: 'Clash Display', sans-serif; font-size: 36px; font-weight: 700; color: #fff; letter-spacing: 4px; margin-bottom: 6px; }
-        .brand-content .brand-sub { font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: 5px; margin-bottom: 2.5rem; }
-        .brand-divider { width: 48px; height: 1px; background: rgba(230,57,70,0.5); margin: 0 auto 2rem; }
-        .brand-desc { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 260px; }
-        .brand-stats { display: flex; gap: 28px; justify-content: center; margin-top: 3rem; }
+        .brand-content .brand-logo {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 4px;
+            margin-bottom: 6px;
+        }
+        .brand-content .brand-sub {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 5px;
+            margin-bottom: 2.5rem;
+        }
+        .brand-divider {
+            width: 48px;
+            height: 1px;
+            background: rgba(230,57,70,0.5);
+            margin: 0 auto 2rem;
+        }
+        .brand-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.8;
+            max-width: 260px;
+        }
+        .brand-stats {
+            display: flex;
+            gap: 28px;
+            justify-content: center;
+            margin-top: 3rem;
+        }
         .brand-stat { text-align: center; }
-        .brand-stat .stat-val { font-family: 'Clash Display', sans-serif; font-size: 24px; font-weight: 700; color: #FCD34D; }
-        .brand-stat .stat-label { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 4px; }
-        .stat-sep { width: 1px; background: rgba(255,255,255,0.08); align-self: stretch; }
-        .login-form-panel { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 3rem; background: var(--card); max-width: 480px; }
-        .login-form-panel h2 { font-family: 'Clash Display', sans-serif; font-size: 26px; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
-        .login-form-panel .login-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 2rem; }
+        .brand-stat .stat-val {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #FCD34D;
+        }
+        .brand-stat .stat-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.35);
+            margin-top: 4px;
+        }
+        .stat-sep {
+            width: 1px;
+            background: rgba(255,255,255,0.08);
+            align-self: stretch;
+        }
+
+        .login-form-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem;
+            background: var(--card);
+            max-width: 480px;
+        }
+        .login-form-panel h2 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .login-form-panel .login-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
         .form-group { margin-bottom: 1.25rem; }
-        .form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--text-muted); letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 7px; }
-        .form-group input[type="email"], .form-group input[type="password"] { width: 100%; padding: 12px 16px; font-family: 'DM Sans', sans-serif; font-size: 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: #F8FAFC; color: var(--text); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
-        .form-group input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
-        .form-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
-        .forgot-link { font-size: 12px; color: var(--accent); text-decoration: none; cursor: pointer; font-weight: 600; }
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 7px;
+        }
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 12px 16px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: #F8FAFC;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-group input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 7px;
+        }
+        .forgot-link {
+            font-size: 12px;
+            color: var(--accent);
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
         .forgot-link:hover { text-decoration: underline; }
-        .remember-row { display: flex; align-items: center; gap: 8px; margin-bottom: 1.5rem; }
-        .remember-row input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
-        .remember-row label { font-size: 13px; color: var(--text-muted); cursor: pointer; }
-        .btn-login { width: 100%; padding: 13px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; color: #fff; background: var(--accent); border: none; border-radius: var(--radius-sm); cursor: pointer; letter-spacing: 0.5px; transition: background 0.2s, transform 0.1s; }
+
+        .remember-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1.2rem;
+        }
+        .remember-row input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+        .remember-row label {
+            font-size: 13px;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 13px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            background: var(--accent);
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: background 0.2s, transform 0.1s;
+        }
         .btn-login:hover { background: #d32f3f; }
         .btn-login:active { transform: scale(0.98); }
         .btn-login:disabled { opacity: 0.6; cursor: not-allowed; }
-        .login-error { display: none; margin-top: 12px; padding: 10px 14px; font-size: 13px; color: #991B1B; background: #FEF2F2; border: 1px solid #FECACA; border-radius: var(--radius-sm); }
+
+        .btn-signup {
+            width: 100%;
+            padding: 13px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+        }
+        .btn-signup:hover {
+            background: #EEF2F7;
+            border-color: #CBD5E1;
+        }
+        .btn-signup:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        .auth-note {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .login-error {
+            display: none;
+            margin-top: 12px;
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #991B1B;
+            background: #FEF2F2;
+            border: 1px solid #FECACA;
+            border-radius: var(--radius-sm);
+        }
         .login-error.visible { display: block; }
-        .login-footer { text-align: center; margin-top: 2rem; font-size: 12px; color: var(--text-muted); opacity: 0.6; }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 12px;
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
 
         /* ===== NAV ===== */
-        .top-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-        .nav-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
-        .logo { font-family: 'Clash Display', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: 2px; color: var(--primary); user-select: none; }
-        .logo em { font-style: normal; color: var(--accent); position: relative; }
-        .logo em::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 3px; background: var(--accent); border-radius: 2px; }
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 24px;
+        }
+        .logo {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--primary);
+            user-select: none;
+        }
+        .logo em {
+            font-style: normal;
+            color: var(--accent);
+            position: relative;
+        }
+        .logo em::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
         .nav-right { display: flex; align-items: center; gap: 12px; }
-        .nav-pills { display: flex; gap: 4px; background: #F1F5F9; padding: 4px; border-radius: 14px; }
-        .nav-pill { background: transparent; border: none; padding: 10px 22px; border-radius: 11px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); display: flex; align-items: center; gap: 7px; }
+        .nav-pills {
+            display: flex;
+            gap: 4px;
+            background: #F1F5F9;
+            padding: 4px;
+            border-radius: 14px;
+        }
+        .nav-pill {
+            background: transparent;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 11px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
         .nav-pill:hover { color: var(--text); }
-        .nav-pill.active { background: var(--card); color: var(--text); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-        .user-pill { display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 10px; background: #F8FAFC; border: 1px solid var(--border); border-radius: 24px; font-size: 13px; color: var(--text-muted); }
-        .user-avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
-        .btn-logout { background: transparent; border: 1px solid var(--border); padding: 8px 16px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
-        .btn-logout:hover { background: #FEF2F2; border-color: #FECACA; color: var(--accent); }
+        .nav-pill.active {
+            background: var(--card);
+            color: var(--text);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .user-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px 6px 10px;
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .user-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .btn-logout {
+            background: transparent;
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-logout:hover {
+            background: #FEF2F2;
+            border-color: #FECACA;
+            color: var(--accent);
+        }
 
         /* ===== VIEWS ===== */
         .view { display: none; max-width: 1140px; margin: 0 auto; padding: 36px 24px 60px; }
         .view.active { display: block; animation: viewIn 0.35s ease; }
-        @keyframes viewIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes viewIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         .page-title { text-align: center; margin-bottom: 36px; }
-        .page-title h1 { font-family: 'Clash Display', sans-serif; font-size: 30px; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+        .page-title h1 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
         .page-title p { color: var(--text-muted); font-size: 15px; }
 
         /* ===== SIMULATOR ===== */
-        .sim-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden; border: 1px solid var(--border); }
-        .sim-body { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; align-items: start; }
-        .controls-panel { padding: 32px; background: linear-gradient(135deg, #FAFBFD 0%, #F5F7FA 100%); border-right: 1px solid var(--border); }
-        .controls-panel-title { font-family: 'Clash Display', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 28px; display: flex; align-items: center; gap: 8px; }
-        .controls-panel-title::before { content: ''; width: 20px; height: 3px; background: var(--accent); border-radius: 2px; }
+        .sim-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .sim-body {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 0;
+            align-items: start;
+        }
+        .controls-panel {
+            padding: 32px;
+            background: linear-gradient(135deg, #FAFBFD 0%, #F5F7FA 100%);
+            border-right: 1px solid var(--border);
+        }
+        .controls-panel-title {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .controls-panel-title::before {
+            content: '';
+            width: 20px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
         .ctrl-group { margin-bottom: 26px; }
         .ctrl-group:last-child { margin-bottom: 0; }
-        .ctrl-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .ctrl-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
         .ctrl-label span:first-child { font-size: 14px; font-weight: 600; color: var(--text); }
-        .ctrl-badge { font-size: 12px; font-weight: 700; background: var(--primary); color: #fff; padding: 4px 14px; border-radius: 20px; min-width: 72px; text-align: center; font-variant-numeric: tabular-nums; }
-        input[type="range"] { width: 100%; height: 6px; border-radius: 3px; background: #DDE3EA; outline: none; -webkit-appearance: none; cursor: pointer; }
-        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); box-shadow: 0 2px 8px rgba(230, 57, 70, 0.35); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
-        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); box-shadow: 0 3px 12px rgba(230, 57, 70, 0.5); }
-        input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; }
-        .results-panel { padding: 32px; display: flex; flex-direction: column; gap: 20px; }
-        .score-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-        .score-card { background: #F8FAFC; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px 12px; text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
-        .score-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-        .score-card h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 8px; font-weight: 700; }
-        .score-card .score-val { font-family: 'Clash Display', sans-serif; font-size: 38px; font-weight: 800; color: var(--primary); line-height: 1; margin-top: 4px; }
-        .segment-box { border-radius: var(--radius-sm); padding: 32px 28px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; background: var(--primary); transition: background 0.4s ease; min-height: 140px; }
-        .segment-box::before { content: ''; position: absolute; top: -60%; right: -30%; width: 260px; height: 260px; background: rgba(255,255,255,0.03); border-radius: 50%; }
-        .segment-box::after { content: ''; position: absolute; bottom: -40%; left: -20%; width: 200px; height: 200px; background: rgba(255,255,255,0.025); border-radius: 50%; }
-        .segment-box .seg-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px; color: rgba(255,255,255,0.6); font-weight: 700; margin-bottom: 14px; position: relative; z-index: 1; }
-        .segment-box .seg-name { font-family: 'Clash Display', sans-serif; font-size: 26px; font-weight: 800; color: #FCD34D; text-shadow: 0 2px 8px rgba(0,0,0,0.2); position: relative; z-index: 1; word-break: break-word; line-height: 1.3; }
+        .ctrl-badge {
+            font-size: 12px;
+            font-weight: 700;
+            background: var(--primary);
+            color: #fff;
+            padding: 4px 14px;
+            border-radius: 20px;
+            min-width: 72px;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #DDE3EA;
+            outline: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 2px 8px rgba(230, 57, 70, 0.35);
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            box-shadow: 0 3px 12px rgba(230, 57, 70, 0.5);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: none;
+            cursor: pointer;
+        }
+
+        .results-panel {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .score-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+        .score-card {
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 20px 12px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .score-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .score-card h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .score-card .score-val {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-top: 4px;
+        }
+
+        .segment-box {
+            border-radius: var(--radius-sm);
+            padding: 32px 28px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--primary);
+            transition: background 0.4s ease;
+            min-height: 140px;
+        }
+        .segment-box::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            right: -30%;
+            width: 260px;
+            height: 260px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+        .segment-box::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -20%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.025);
+            border-radius: 50%;
+        }
+        .segment-box .seg-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 700;
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 1;
+        }
+        .segment-box .seg-name {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #FCD34D;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+            word-break: break-word;
+            line-height: 1.3;
+        }
+
         .schema-section { padding: 28px 32px 32px; border-top: 1px solid var(--border); }
-        .schema-title { font-family: 'Clash Display', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); text-align: center; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; gap: 12px; }
-        .schema-title::before, .schema-title::after { content: ''; flex: 1; max-width: 100px; height: 1px; background: var(--border); }
-        .schema-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .schema-col h4 { font-size: 13px; font-weight: 700; color: var(--primary); text-align: center; padding: 10px; background: #F1F5F9; border-radius: 8px; margin-bottom: 12px; }
-        .schema-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        .schema-table td { padding: 8px 6px; text-align: center; border-bottom: 1px solid #F1F5F9; color: var(--text-muted); }
+        .schema-title {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .schema-title::before,
+        .schema-title::after {
+            content: '';
+            flex: 1;
+            max-width: 100px;
+            height: 1px;
+            background: var(--border);
+        }
+        .schema-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .schema-col h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+            padding: 10px;
+            background: #F1F5F9;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        .schema-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .schema-table td {
+            padding: 8px 6px;
+            text-align: center;
+            border-bottom: 1px solid #F1F5F9;
+            color: var(--text-muted);
+        }
         .schema-table tr:last-child td { border-bottom: none; }
-        .s-badge { display: inline-block; font-weight: 700; font-size: 12px; color: #fff; padding: 3px 10px; border-radius: 6px; }
+        .s-badge {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 12px;
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 6px;
+        }
 
         /* ===== PERSONAS ===== */
         .persona-list { display: flex; flex-direction: column; gap: 28px; }
-        .p-group { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow-md); overflow: hidden; border: 1px solid var(--border); }
-        .p-group-header { padding: 16px 28px; font-family: 'Clash Display', sans-serif; font-size: 17px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
+        .p-group {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .p-group-header {
+            padding: 16px 28px;
+            font-family: 'Clash Display', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
         .p-group-header.hdr-zirve { background: linear-gradient(135deg, #059669, #10B981); }
         .p-group-header.hdr-buyume { background: linear-gradient(135deg, #2563EB, #3B82F6); }
         .p-group-header.hdr-risk { background: linear-gradient(135deg, #D97706, #F59E0B); }
         .p-group-header.hdr-kayip { background: linear-gradient(135deg, #DC2626, #EF4444); }
-        .p-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; padding: 24px; }
-        .p-card { background: #FAFBFC; border: 1px solid #EEF2F6; border-radius: var(--radius-sm); padding: 22px 24px; transition: all 0.2s ease; position: relative; display: flex; flex-direction: column; }
-        .p-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); background: #fff; border-color: #DDE3EA; }
-        .p-card .sql-tag { display: inline-block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); background: #EEF2F6; padding: 4px 10px; border-radius: 5px; margin-bottom: 12px; align-self: flex-start; }
-        .p-card h3 { font-family: 'Clash Display', sans-serif; font-size: 16px; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
-        .p-card p { font-size: 13.5px; line-height: 1.7; color: #596A7A; flex: 1; }
-        .p-strategy { margin-top: 14px; padding-top: 12px; border-top: 1px dashed #E2E8F0; font-size: 13px; font-weight: 600; color: var(--primary-light); line-height: 1.55; }
+
+        .p-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 18px;
+            padding: 24px;
+        }
+        .p-card {
+            background: #FAFBFC;
+            border: 1px solid #EEF2F6;
+            border-radius: var(--radius-sm);
+            padding: 22px 24px;
+            transition: all 0.2s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .p-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            background: #fff;
+            border-color: #DDE3EA;
+        }
+        .p-card .sql-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            background: #EEF2F6;
+            padding: 4px 10px;
+            border-radius: 5px;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+        .p-card h3 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .p-card p {
+            font-size: 13.5px;
+            line-height: 1.7;
+            color: #596A7A;
+            flex: 1;
+        }
+        .p-strategy {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px dashed #E2E8F0;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-light);
+            line-height: 1.55;
+        }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 860px) {
@@ -145,6 +732,7 @@
             .segment-box .seg-name { font-size: 22px; }
             .nav-inner { flex-wrap: wrap; gap: 10px; }
         }
+
         @media (max-width: 640px) {
             .nav-inner { flex-direction: column; gap: 12px; }
             .nav-pills { width: 100%; justify-content: center; }
@@ -176,13 +764,16 @@
                 </div>
             </div>
         </div>
+
         <div class="login-form-panel">
             <h2>Hoş geldiniz</h2>
-            <div class="login-subtitle">Devam etmek için giriş yapın</div>
+            <div class="login-subtitle">Devam etmek için giriş yapın veya yeni hesap oluşturun</div>
+
             <div class="form-group">
                 <label for="login-email">E-posta</label>
                 <input type="email" id="login-email" placeholder="ad.soyad@koton.com" autocomplete="email">
             </div>
+
             <div class="form-group">
                 <div class="form-row">
                     <label for="login-password">Şifre</label>
@@ -190,13 +781,18 @@
                 </div>
                 <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password">
             </div>
+
             <div class="remember-row">
                 <input type="checkbox" id="remember-me">
                 <label for="remember-me">Beni hatırla</label>
             </div>
+
             <button class="btn-login" id="btn-login" onclick="handleLogin()">Giriş yap</button>
+            <button class="btn-signup" id="btn-signup" onclick="handleSignup()">Kayıt ol</button>
+
+            <div class="auth-note">Kayıt sonrası e-posta doğrulaması gerekebilir.</div>
             <div class="login-error" id="login-error"></div>
-            <div class="login-footer">v2.4 · Koton CRM Analitik Departmanı</div>
+            <div class="login-footer">v2.5 · Koton CRM Analitik Departmanı</div>
         </div>
     </div>
 
@@ -220,43 +816,202 @@
         </nav>
 
         <div id="view-simulator" class="view active">
-            <div class="page-title"><h1>Segmentasyon Simülatörü</h1><p>Müşteri metriklerini değiştirerek SQL kurallarının anlık sonucunu görün.</p></div>
+            <div class="page-title">
+                <h1>Segmentasyon Simülatörü</h1>
+                <p>Müşteri metriklerini değiştirerek SQL kurallarının anlık sonucunu görün.</p>
+            </div>
+
             <div class="sim-card">
                 <div class="sim-body">
                     <div class="controls-panel">
                         <div class="controls-panel-title">Parametreler</div>
-                        <div class="ctrl-group"><div class="ctrl-label"><span>Müşteri Yaşı (İlk Fiş - Gün)</span><span class="ctrl-badge" id="val-age">150 Gün</span></div><input type="range" id="in-age" min="0" max="600" value="150" oninput="calculateRFM()"></div>
-                        <div class="ctrl-group"><div class="ctrl-label"><span>Recency (Son Fiş - Gün)</span><span class="ctrl-badge" id="val-recency">45 Gün</span></div><input type="range" id="in-recency" min="0" max="600" value="45" oninput="calculateRFM()"></div>
-                        <div class="ctrl-group"><div class="ctrl-label"><span>Frequency (Son 1 Yıl Fiş)</span><span class="ctrl-badge" id="val-freq">6 Fiş</span></div><input type="range" id="in-freq" min="0" max="15" value="6" oninput="calculateRFM()"></div>
-                        <div class="ctrl-group"><div class="ctrl-label"><span>Monetary (Son 1 Yıl Ciro)</span><span class="ctrl-badge" id="val-monetary">4.000 TL</span></div><input type="range" id="in-monetary" min="0" max="10000" step="50" value="4000" oninput="calculateRFM()"></div>
+
+                        <div class="ctrl-group">
+                            <div class="ctrl-label">
+                                <span>Müşteri Yaşı (İlk Fiş - Gün)</span>
+                                <span class="ctrl-badge" id="val-age">150 Gün</span>
+                            </div>
+                            <input type="range" id="in-age" min="0" max="600" value="150" oninput="calculateRFM()">
+                        </div>
+
+                        <div class="ctrl-group">
+                            <div class="ctrl-label">
+                                <span>Recency (Son Fiş - Gün)</span>
+                                <span class="ctrl-badge" id="val-recency">45 Gün</span>
+                            </div>
+                            <input type="range" id="in-recency" min="0" max="600" value="45" oninput="calculateRFM()">
+                        </div>
+
+                        <div class="ctrl-group">
+                            <div class="ctrl-label">
+                                <span>Frequency (Son 1 Yıl Fiş)</span>
+                                <span class="ctrl-badge" id="val-freq">6 Fiş</span>
+                            </div>
+                            <input type="range" id="in-freq" min="0" max="15" value="6" oninput="calculateRFM()">
+                        </div>
+
+                        <div class="ctrl-group">
+                            <div class="ctrl-label">
+                                <span>Monetary (Son 1 Yıl Ciro)</span>
+                                <span class="ctrl-badge" id="val-monetary">4.000 TL</span>
+                            </div>
+                            <input type="range" id="in-monetary" min="0" max="10000" step="50" value="4000" oninput="calculateRFM()">
+                        </div>
                     </div>
+
                     <div class="results-panel">
                         <div class="score-row">
                             <div class="score-card"><h3>Recency</h3><div class="score-val" id="res-r">6</div></div>
                             <div class="score-card"><h3>Frequency</h3><div class="score-val" id="res-f">6</div></div>
                             <div class="score-card"><h3>Monetary</h3><div class="score-val" id="res-m">5</div></div>
                         </div>
-                        <div class="segment-box" id="segment-box"><div class="seg-label">Nihai Müşteri Segmenti</div><div class="seg-name" id="res-segment">1Champions</div></div>
+
+                        <div class="segment-box" id="segment-box">
+                            <div class="seg-label">Nihai Müşteri Segmenti</div>
+                            <div class="seg-name" id="res-segment">1Champions</div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="schema-section">
                     <div class="schema-title">SQL Matris Kuralları</div>
                     <div class="schema-grid">
-                        <div class="schema-col"><h4>R: Yenilik (Gün)</h4><table class="schema-table"><tr><td>0 – 90</td><td><span class="s-badge" style="background:#059669">6</span></td></tr><tr><td>91 – 180</td><td><span class="s-badge" style="background:#2563EB">5</span></td></tr><tr><td>181 – 270</td><td><span class="s-badge" style="background:#D97706">4</span></td></tr><tr><td>271 – 360</td><td><span class="s-badge" style="background:#EAB308;color:#1A2332">3</span></td></tr><tr><td>361 – 450</td><td><span class="s-badge" style="background:#94A3B8;color:#1A2332">2</span></td></tr><tr><td>451+</td><td><span class="s-badge" style="background:#64748B">1</span></td></tr></table></div>
-                        <div class="schema-col"><h4>F: Sıklık (Adet)</h4><table class="schema-table"><tr><td>6 ve Üzeri</td><td><span class="s-badge" style="background:#059669">6</span></td></tr><tr><td>5 Fiş</td><td><span class="s-badge" style="background:#2563EB">5</span></td></tr><tr><td>4 Fiş</td><td><span class="s-badge" style="background:#D97706">4</span></td></tr><tr><td>3 Fiş</td><td><span class="s-badge" style="background:#EAB308;color:#1A2332">3</span></td></tr><tr><td>2 Fiş</td><td><span class="s-badge" style="background:#94A3B8;color:#1A2332">2</span></td></tr><tr><td>1 Fiş</td><td><span class="s-badge" style="background:#64748B">1</span></td></tr></table></div>
-                        <div class="schema-col"><h4>M: Tutar (TL)</h4><table class="schema-table"><tr><td>5.000+</td><td><span class="s-badge" style="background:#059669">6</span></td></tr><tr><td>3.000 – 4.999</td><td><span class="s-badge" style="background:#2563EB">5</span></td></tr><tr><td>1.500 – 2.999</td><td><span class="s-badge" style="background:#D97706">4</span></td></tr><tr><td>500 – 1.499</td><td><span class="s-badge" style="background:#EAB308;color:#1A2332">3</span></td></tr><tr><td>100 – 499</td><td><span class="s-badge" style="background:#94A3B8;color:#1A2332">2</span></td></tr><tr><td>0 – 99</td><td><span class="s-badge" style="background:#64748B">1</span></td></tr></table></div>
+                        <div class="schema-col">
+                            <h4>R: Yenilik (Gün)</h4>
+                            <table class="schema-table">
+                                <tr><td>0 – 90</td><td><span class="s-badge" style="background:#059669">6</span></td></tr>
+                                <tr><td>91 – 180</td><td><span class="s-badge" style="background:#2563EB">5</span></td></tr>
+                                <tr><td>181 – 270</td><td><span class="s-badge" style="background:#D97706">4</span></td></tr>
+                                <tr><td>271 – 360</td><td><span class="s-badge" style="background:#EAB308;color:#1A2332">3</span></td></tr>
+                                <tr><td>361 – 450</td><td><span class="s-badge" style="background:#94A3B8;color:#1A2332">2</span></td></tr>
+                                <tr><td>451+</td><td><span class="s-badge" style="background:#64748B">1</span></td></tr>
+                            </table>
+                        </div>
+
+                        <div class="schema-col">
+                            <h4>F: Sıklık (Adet)</h4>
+                            <table class="schema-table">
+                                <tr><td>6 ve Üzeri</td><td><span class="s-badge" style="background:#059669">6</span></td></tr>
+                                <tr><td>5 Fiş</td><td><span class="s-badge" style="background:#2563EB">5</span></td></tr>
+                                <tr><td>4 Fiş</td><td><span class="s-badge" style="background:#D97706">4</span></td></tr>
+                                <tr><td>3 Fiş</td><td><span class="s-badge" style="background:#EAB308;color:#1A2332">3</span></td></tr>
+                                <tr><td>2 Fiş</td><td><span class="s-badge" style="background:#94A3B8;color:#1A2332">2</span></td></tr>
+                                <tr><td>1 Fiş</td><td><span class="s-badge" style="background:#64748B">1</span></td></tr>
+                            </table>
+                        </div>
+
+                        <div class="schema-col">
+                            <h4>M: Tutar (TL)</h4>
+                            <table class="schema-table">
+                                <tr><td>5.000+</td><td><span class="s-badge" style="background:#059669">6</span></td></tr>
+                                <tr><td>3.000 – 4.999</td><td><span class="s-badge" style="background:#2563EB">5</span></td></tr>
+                                <tr><td>1.500 – 2.999</td><td><span class="s-badge" style="background:#D97706">4</span></td></tr>
+                                <tr><td>500 – 1.499</td><td><span class="s-badge" style="background:#EAB308;color:#1A2332">3</span></td></tr>
+                                <tr><td>100 – 499</td><td><span class="s-badge" style="background:#94A3B8;color:#1A2332">2</span></td></tr>
+                                <tr><td>0 – 99</td><td><span class="s-badge" style="background:#64748B">1</span></td></tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div id="view-personas" class="view">
-            <div class="page-title"><h1>RFM Persona Sözlüğü</h1><p>Müşteri segmentlerinin analitik tanımları ve iletişim stratejileri.</p></div>
+            <div class="page-title">
+                <h1>RFM Persona Sözlüğü</h1>
+                <p>Müşteri segmentlerinin analitik tanımları ve iletişim stratejileri.</p>
+            </div>
+
             <div class="persona-list">
-                <div class="p-group"><div class="p-group-header hdr-zirve">🌟 En Değerliler (Zirve Kitlesi)</div><div class="p-cards"><div class="p-card"><span class="sql-tag">SQL: 1Champions</span><h3>Şampiyonlar</h3><p>Markamızın elmas kitlesi. Son 3 ay içinde mutlaka alışveriş yapmış, yılda en az 5 kez gelen ve yüksek bütçe (3.000 TL+) harcayan en kârlı müşterilerimiz.</p><div class="p-strategy">💡 Strateji: Ayrıcalıklı hissettir, özel lansmanlara davet et, ödüllendir.</div></div><div class="p-card"><span class="sql-tag">SQL: 2Sadik</span><h3>Sadıklar</h3><p>Şampiyonların hemen arkasından gelen güçlü kitlemiz. Son 3 ayda mağazaya/siteye uğramış, düzenli alışveriş yapan (yılda 3-4 kez) ve ortalamanın üzerinde (500 TL+) harcama yapan marka elçilerimiz.</p><div class="p-strategy">💡 Strateji: Memnuniyeti koru, sepet büyütme (upsell) teklifleri sun.</div></div></div></div>
-                <div class="p-group"><div class="p-group-header hdr-buyume">🚀 Gelişim Fırsatları (Büyüme Kitlesi)</div><div class="p-cards"><div class="p-card"><span class="sql-tag">SQL: 3PotansiyelSadik</span><h3>Potansiyel Sadıklar</h3><p>Geçmişte iyi harcama ve sıklık göstermiş ancak son 3 ila 6 aydır sessizliğe bürünmüş kitle. Sadık gruba geçmeleri için ufak bir hatırlatmaya ihtiyaçları var.</p><div class="p-strategy">💡 Strateji: Özledik kampanyaları, yeni sezon haberleri.</div></div><div class="p-card"><span class="sql-tag">SQL: 4CirosuArtilimasiGereken</span><h3>Cirosu Artırılması Gerekenler</h3><p>Markayla bağları sıcak (son 6 ayda gelmişler) ancak sadece indirimli/ucuz ürünleri tercih edip düşük sepetle (500 TL altı) çıkanlar.</p><div class="p-strategy">💡 Strateji: Çapraz satış (Cross-sell), X al Y öde kampanyaları.</div></div><div class="p-card"><span class="sql-tag">SQL: 5FrekansiArtilimasiGereken</span><h3>Frekansı Artırılması Gerekenler</h3><p>Markayla sıcak temastalar, geldiklerinde yüksek bütçe (500 TL+) bırakıyorlar ancak yılda sadece 1-2 kere uğruyorlar.</p><div class="p-strategy">💡 Strateji: Sıklaştırma programları, 2. alışverişe özel indirimler.</div></div><div class="p-card"><span class="sql-tag">SQL: 6YuksekPotansiyelSahibi</span><h3>Yüksek Potansiyel Sahibi</h3><p>Harika bir geçmişe sahipler (yüksek sıklık ve bütçe) ama son 6 ila 9 aydır ortalıkta görünmeyen eski yıldızlar.</p><div class="p-strategy">💡 Strateji: Kişiselleştirilmiş iddialı teklifler, sepette indirim.</div></div></div></div>
-                <div class="p-group"><div class="p-group-header hdr-risk">⚠️ Riskli Grup (Tutundurma Kitlesi)</div><div class="p-cards"><div class="p-card"><span class="sql-tag">SQL: 7PasiflesmeEgilimli</span><h3>Pasifleşme Eğilimliler</h3><p>Alışveriş süreleri 6-9 aya kadar uzamış, geldiklerinde de düşük frekans ve düşük ciro bırakan, yavaş yavaş kaymakta olan kitle.</p><div class="p-strategy">💡 Strateji: Flaş indirimler, dikkat çekici genel iletişim.</div></div><div class="p-card"><span class="sql-tag">SQL: 8SonCagri</span><h3>Son Çağrı</h3><p>Fiş tarihi 9 ay ile 1 yıl arasına dayanmış, kaybetmeden önce müdahale edilebilecek son kitle.</p><div class="p-strategy">💡 Strateji: Agresif indirim kodları, geri kazanım SMS'leri.</div></div></div></div>
-                <div class="p-group"><div class="p-group-header hdr-kayip">🚨 Kayıp ve Yeni (Özel Kitle)</div><div class="p-cards"><div class="p-card"><span class="sql-tag">SQL: 90Churn</span><h3>Churn (Kaybedilen)</h3><p>Son alışverişinin üzerinden 1 yıldan (360 gün) fazla zaman geçmiş olan ve artık aktif iletişim döngüsünden çıkanlar.</p><div class="p-strategy">💡 Strateji: Yılda birkaç kez özel reaktivasyon kampanyaları.</div></div><div class="p-card"><span class="sql-tag">SQL: 91Lost</span><h3>Lost (Kış Uykusu)</h3><p>Son alışverişi 450 günü (yaklaşık 1.5 yıl) aşmış, markayı tamamen unutmuş veya terk etmiş olan kitle.</p><div class="p-strategy">💡 Strateji: Genel iletişimden çıkar, maliyet yaratma.</div></div><div class="p-card"><span class="sql-tag">SQL: 92YeniMusteri</span><h3>Yeni Müşteri</h3><p>Markamızla yeni tanışmış, ilk fişini son 30 gün içerisinde kesmiş henüz RFM skorlamasına (yaşı gereği) girmeyen taze kanlar.</p><div class="p-strategy">💡 Strateji: Hoş geldin yolculuğu (Onboarding), 2. siparişe teşvik.</div></div></div></div>
+                <div class="p-group">
+                    <div class="p-group-header hdr-zirve">🌟 En Değerliler (Zirve Kitlesi)</div>
+                    <div class="p-cards">
+                        <div class="p-card">
+                            <span class="sql-tag">SQL: 1Champions</span>
+                            <h3>Şampiyonlar</h3>
+                            <p>Markamızın elmas kitlesi. Son 3 ay içinde mutlaka alışveriş yapmış, yılda en az 5 kez gelen ve yüksek bütçe (3.000 TL+) harcayan en kârlı müşterilerimiz.</p>
+                            <div class="p-strategy">💡 Strateji: Ayrıcalıklı hissettir, özel lansmanlara davet et, ödüllendir.</div>
+                        </div>
+                        <div class="p-card">
+                            <span class="sql-tag">SQL: 2Sadik</span>
+                            <h3>Sadıklar</h3>
+                            <p>Şampiyonların hemen arkasından gelen güçlü kitlemiz. Son 3 ayda mağazaya/siteye uğramış, düzenli alışveriş yapan (yılda 3-4 kez) ve ortalamanın üzerinde (500 TL+) harcama yapan marka elçilerimiz.</p>
+                            <div class="p-strategy">💡 Strateji: Memnuniyeti koru, sepet büyütme teklifleri sun.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-group">
+                    <div class="p-group-header hdr-buyume">🚀 Gelişim Fırsatları (Büyüme Kitlesi)</div>
+                    <div class="p-cards">
+                        <div class="p-card">
+                            <span class="sql-tag">SQL: 3PotansiyelSadik</span>
+                            <h3>Potansiyel Sadıklar</h3>
+                            <p>Geçmişte iyi harcama ve sıklık göstermiş ancak son 3 ila 6 aydır sessizliğe bürünmüş kitle. Sadık gruba geçmeleri için ufak bir hatırlatmaya ihtiyaçları var.</p>
+                            <div class="p-strategy">💡 Strateji: Özledik kampanyaları, yeni sezon haberleri.</div>
+                        </div>
+                        <div class="p-card">
+                            <span class="sql-tag">SQL: 4CirosuArtilimasiGereken</span>
+                            <h3>Cirosu Artırılması Gerekenler</h3>
+                            <p>Markayla bağları sıcak ancak düşük sepetle çıkan müşteriler.</p>
+                            <div class="p-strategy">💡 Strateji: Çapraz satış, sepet büyütme kampanyaları.</div>
+                        </div>
+                        <div class="p-card">
+                            <span class="sql-tag">SQL: 5FrekansiArtilimasiGereken</span>
+                            <h3>Frekansı Artırılması Gerekenler</h3>
+                            <p>Yüksek bütçe bırakıyorlar ama yılda sadece 1-2 kere geliyorlar.</p>
+                            <div class="p-strategy">💡 Strateji: Sıklaştırma programları, 2. alışverişe özel indirimler.</div>
+                        </div>
+                        <div class="p-card">
+                            <span class="sql-tag">SQL: 6YuksekPotansiyelSahibi</span>
+                            <h3>Yüksek Potansiyel Sahibi</h3>
+                            <p>Güçlü geçmişe sahip ama son 6 ila 9 aydır görünmeyen eski yıldızlar.</p>
+                            <div class="p-strategy">💡 Strateji: Kişiselleştirilmiş teklifler, reaktivasyon kampanyaları.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-group">
+                    <div class="p-group-header hdr-risk">⚠️ Riskli Grup (Tutundurma Kitlesi)</div>
+                    <div class="p-cards">
+                        <div class="p-card">
+                            <span class="sql-tag">SQL: 7PasiflesmeEgilimli</span>
+                            <h3>Pasifleşme Eğilimliler</h3>
+                            <p>Alışveriş süreleri uzamış, düşük frekans ve düşük ciro bırakan, yavaş yavaş kaymakta olan kitle.</p>
+                            <div class="p-strategy">💡 Strateji: Flaş indirimler, dikkat çekici genel iletişim.</div>
+                        </div>
+                        <div class="p-card">
+                            <span class="sql-tag">SQL: 8SonCagri</span>
+                            <h3>Son Çağrı</h3>
+                            <p>Fiş tarihi 9 ay ile 1 yıl arasına dayanmış, kaybetmeden önce müdahale edilebilecek son kitle.</p>
+                            <div class="p-strategy">💡 Strateji: Agresif indirim kodları, geri kazanım SMS'leri.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-group">
+                    <div class="p-group-header hdr-kayip">🚨 Kayıp ve Yeni (Özel Kitle)</div>
+                    <div class="p-cards">
+                        <div class="p-card">
+                            <span class="sql-tag">SQL: 90Churn</span>
+                            <h3>Churn (Kaybedilen)</h3>
+                            <p>Son alışverişinin üzerinden 1 yıldan fazla zaman geçmiş olan ve artık aktif iletişim döngüsünden çıkanlar.</p>
+                            <div class="p-strategy">💡 Strateji: Yılda birkaç kez özel reaktivasyon kampanyaları.</div>
+                        </div>
+                        <div class="p-card">
+                            <span class="sql-tag">SQL: 91Lost</span>
+                            <h3>Lost (Kış Uykusu)</h3>
+                            <p>Son alışverişi 450 günü aşmış, markayı tamamen unutmuş veya terk etmiş olan kitle.</p>
+                            <div class="p-strategy">💡 Strateji: Genel iletişimden çıkar, maliyet yaratma.</div>
+                        </div>
+                        <div class="p-card">
+                            <span class="sql-tag">SQL: 92YeniMusteri</span>
+                            <h3>Yeni Müşteri</h3>
+                            <p>İlk fişini son 30 gün içinde kesmiş, henüz RFM skorlamasına girmeyen yeni müşteri kitlesi.</p>
+                            <div class="p-strategy">💡 Strateji: Hoş geldin yolculuğu, 2. sipariş teşviki.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -265,8 +1020,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         // =====================================================================
-        //  SUPABASE CONFIG — Replace these two values with your own!
-        //  Get them from: supabase.com → Project → Settings → API
+        // SUPABASE CONFIG
+        // Not: anon key public olabilir. Veri güvenliği için tablolarında RLS açık olmalı.
         // =====================================================================
         const SUPABASE_URL  = 'https://evhdamhfxbylqltnavcb.supabase.co';
         const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2aGRhbWhmeGJ5bHFsdG5hdmNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyMTg2ODcsImV4cCI6MjA5MDc5NDY4N30.omXkFIZL8zDnLmNgUvGKZB_GpOSTlkE1pZuGShmIxqU';
@@ -274,27 +1029,177 @@
         const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
         // =====================================================================
-        //  AUTH
+        // AUTH HELPERS
+        // =====================================================================
+        function setAuthButtonsLoading(isLoading, loginText = 'Giriş yap', signupText = 'Kayıt ol') {
+            const loginBtn = document.getElementById('btn-login');
+            const signupBtn = document.getElementById('btn-signup');
+
+            loginBtn.disabled = isLoading;
+            signupBtn.disabled = isLoading;
+
+            if (!isLoading) {
+                loginBtn.textContent = loginText;
+                signupBtn.textContent = signupText;
+            }
+        }
+
+        function resetMessageBox() {
+            const err = document.getElementById('login-error');
+            err.classList.remove('visible');
+            err.textContent = '';
+            err.style.color = '';
+            err.style.background = '';
+            err.style.borderColor = '';
+        }
+
+        function mapAuthErrorMessage(msg) {
+            const normalized = (msg || '').toLowerCase();
+
+            if (
+                normalized.includes('invalid login credentials') ||
+                normalized.includes('invalid credentials') ||
+                normalized.includes('invalid login')
+            ) {
+                return 'E-posta veya şifre hatalı.';
+            }
+
+            if (
+                normalized.includes('email not confirmed') ||
+                normalized.includes('email not verified')
+            ) {
+                return 'Lütfen e-posta adresinizi doğrulayın.';
+            }
+
+            if (
+                normalized.includes('user already registered') ||
+                normalized.includes('already registered')
+            ) {
+                return 'Bu e-posta adresi ile zaten kayıt mevcut.';
+            }
+
+            if (
+                normalized.includes('signup is disabled') ||
+                normalized.includes('signups not allowed')
+            ) {
+                return 'Kayıt olma işlemi şu anda kapalı.';
+            }
+
+            if (
+                normalized.includes('password should be at least') ||
+                normalized.includes('weak password')
+            ) {
+                return 'Şifre güvenlik kriterlerini karşılamıyor.';
+            }
+
+            if (
+                normalized.includes('too many requests') ||
+                normalized.includes('rate limit')
+            ) {
+                return 'Çok fazla deneme yaptınız. Lütfen biraz bekleyin.';
+            }
+
+            if (
+                normalized.includes('network') ||
+                normalized.includes('fetch') ||
+                normalized.includes('failed to fetch')
+            ) {
+                return 'Bağlantı hatası. İnternetinizi kontrol edin.';
+            }
+
+            return msg || 'Bir hata oluştu. Lütfen tekrar deneyin.';
+        }
+
+        function showError(msg) {
+            const err = document.getElementById('login-error');
+            err.textContent = mapAuthErrorMessage(msg);
+            err.style.color = '#991B1B';
+            err.style.background = '#FEF2F2';
+            err.style.borderColor = '#FECACA';
+            err.classList.add('visible');
+        }
+
+        function showSuccess(msg) {
+            const err = document.getElementById('login-error');
+            err.textContent = msg;
+            err.style.color = '#065F46';
+            err.style.background = '#ECFDF5';
+            err.style.borderColor = '#A7F3D0';
+            err.classList.add('visible');
+        }
+
+        // =====================================================================
+        // AUTH
         // =====================================================================
         async function handleLogin() {
             const email = document.getElementById('login-email').value.trim();
-            const pw    = document.getElementById('login-password').value;
-            const err   = document.getElementById('login-error');
-            const btn   = document.getElementById('btn-login');
+            const pw = document.getElementById('login-password').value;
 
-            err.classList.remove('visible');
-            err.style.color = ''; err.style.background = ''; err.style.borderColor = '';
+            resetMessageBox();
 
-            if (!email || !pw) { showError('Lütfen e-posta ve şifre alanlarını doldurun.'); return; }
+            if (!email || !pw) {
+                showError('Lütfen e-posta ve şifre alanlarını doldurun.');
+                return;
+            }
 
-            btn.disabled = true; btn.textContent = 'Giriş yapılıyor...';
+            setAuthButtonsLoading(true);
+            document.getElementById('btn-login').textContent = 'Giriş yapılıyor...';
 
-            const { data, error } = await sb.auth.signInWithPassword({ email, password: pw });
+            const { data, error } = await sb.auth.signInWithPassword({
+                email,
+                password: pw
+            });
 
-            btn.disabled = false; btn.textContent = 'Giriş yap';
+            setAuthButtonsLoading(false);
 
-            if (error) { showError('Giriş başarısız: ' + error.message); return; }
+            if (error) {
+                showError(error.message);
+                return;
+            }
+
             showApp(data.user);
+        }
+
+        async function handleSignup() {
+            const email = document.getElementById('login-email').value.trim();
+            const pw = document.getElementById('login-password').value;
+
+            resetMessageBox();
+
+            if (!email || !pw) {
+                showError('Kayıt için e-posta ve şifre alanlarını doldurun.');
+                return;
+            }
+
+            if (pw.length < 6) {
+                showError('Şifre en az 6 karakter olmalıdır.');
+                return;
+            }
+
+            setAuthButtonsLoading(true, 'Giriş yap', 'Kayıt oluşturuluyor...');
+
+            const { data, error } = await sb.auth.signUp({
+                email,
+                password: pw
+            });
+
+            setAuthButtonsLoading(false);
+
+            if (error) {
+                showError(error.message);
+                return;
+            }
+
+            const user = data?.user;
+            const session = data?.session;
+
+            if (session && user) {
+                showSuccess('✅ Kayıt başarılı. Oturum açıldı.');
+                showApp(user);
+                return;
+            }
+
+            showSuccess('✅ Kayıt başarılı. E-posta doğrulaması gerekiyorsa gelen kutunuzu kontrol edin.');
         }
 
         async function handleLogout() {
@@ -302,57 +1207,77 @@
             document.getElementById('app-container').classList.add('hidden');
             document.getElementById('login-screen').classList.remove('hidden');
             document.getElementById('login-password').value = '';
+            resetMessageBox();
         }
 
         function handleForgotPassword() {
             const email = document.getElementById('login-email').value.trim();
-            if (!email) { showError('Lütfen önce e-posta adresinizi girin, sonra tekrar tıklayın.'); return; }
-            sb.auth.resetPasswordForEmail(email).then(() => {
-                const err = document.getElementById('login-error');
-                err.textContent = '✅ Şifre sıfırlama bağlantısı gönderildi.';
-                err.style.color = '#065F46'; err.style.background = '#ECFDF5'; err.style.borderColor = '#A7F3D0';
-                err.classList.add('visible');
-            });
-        }
 
-        function showError(msg) {
-            const err = document.getElementById('login-error');
-            err.textContent = msg;
-            err.style.color = '#991B1B'; err.style.background = '#FEF2F2'; err.style.borderColor = '#FECACA';
-            err.classList.add('visible');
+            resetMessageBox();
+
+            if (!email) {
+                showError('Lütfen önce e-posta adresinizi girin, sonra tekrar tıklayın.');
+                return;
+            }
+
+            sb.auth.resetPasswordForEmail(email)
+                .then(({ error }) => {
+                    if (error) {
+                        showError(error.message);
+                        return;
+                    }
+                    showSuccess('✅ Şifre sıfırlama bağlantısı gönderildi.');
+                });
         }
 
         function showApp(user) {
             document.getElementById('login-screen').classList.add('hidden');
             document.getElementById('app-container').classList.remove('hidden');
+
             const email = user.email || '';
             document.getElementById('user-email-display').textContent = email;
-            const initials = email.split('@')[0].split('.').map(p => p.charAt(0).toUpperCase()).join('').substring(0, 2) || 'KR';
+
+            const initials =
+                email.split('@')[0]
+                    .split('.')
+                    .map(part => part.charAt(0).toUpperCase())
+                    .join('')
+                    .substring(0, 2) || 'KR';
+
             document.getElementById('user-avatar').textContent = initials;
             calculateRFM();
         }
 
         // Enter key support
-        document.getElementById('login-password').addEventListener('keydown', e => { if (e.key === 'Enter') handleLogin(); });
-        document.getElementById('login-email').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('login-password').focus(); });
+        document.getElementById('login-password').addEventListener('keydown', e => {
+            if (e.key === 'Enter') handleLogin();
+        });
+
+        document.getElementById('login-email').addEventListener('keydown', e => {
+            if (e.key === 'Enter') document.getElementById('login-password').focus();
+        });
 
         // Auto-restore session
         (async () => {
             const { data: { session } } = await sb.auth.getSession();
-            if (session && session.user) showApp(session.user);
+            if (session && session.user) {
+                showApp(session.user);
+            }
         })();
 
         // =====================================================================
-        //  APP LOGIC
+        // APP LOGIC
         // =====================================================================
         function switchView(name) {
-            document.querySelectorAll('.nav-pill').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-pill').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
             document.getElementById('btn-' + name).classList.add('active');
             document.getElementById('view-' + name).classList.add('active');
         }
 
-        function formatTL(n) { return n.toLocaleString('tr-TR'); }
+        function formatTL(n) {
+            return n.toLocaleString('tr-TR');
+        }
 
         function calculateRFM() {
             const age = parseInt(document.getElementById('in-age').value);
@@ -368,14 +1293,26 @@
             let r_cat = 0, f_cat = 0, m_cat = 0, segment = 'Diger';
 
             if (age > 30) {
-                if (r < 91) r_cat = 6; else if (r < 181) r_cat = 5; else if (r < 271) r_cat = 4;
-                else if (r < 361) r_cat = 3; else if (r < 451) r_cat = 2; else r_cat = 1;
+                if (r < 91) r_cat = 6;
+                else if (r < 181) r_cat = 5;
+                else if (r < 271) r_cat = 4;
+                else if (r < 361) r_cat = 3;
+                else if (r < 451) r_cat = 2;
+                else r_cat = 1;
 
-                if (f === 1) f_cat = 1; else if (f === 2) f_cat = 2; else if (f === 3) f_cat = 3;
-                else if (f === 4) f_cat = 4; else if (f === 5) f_cat = 5; else if (f >= 6) f_cat = 6;
+                if (f === 1) f_cat = 1;
+                else if (f === 2) f_cat = 2;
+                else if (f === 3) f_cat = 3;
+                else if (f === 4) f_cat = 4;
+                else if (f === 5) f_cat = 5;
+                else if (f >= 6) f_cat = 6;
 
-                if (m < 100) m_cat = 1; else if (m < 500) m_cat = 2; else if (m < 1500) m_cat = 3;
-                else if (m < 3000) m_cat = 4; else if (m < 5000) m_cat = 5; else m_cat = 6;
+                if (m < 100) m_cat = 1;
+                else if (m < 500) m_cat = 2;
+                else if (m < 1500) m_cat = 3;
+                else if (m < 3000) m_cat = 4;
+                else if (m < 5000) m_cat = 5;
+                else m_cat = 6;
             }
 
             document.getElementById('res-r').innerText = r_cat;
@@ -397,11 +1334,17 @@
             else if (r_cat === 0 && f_cat === 0 && m_cat === 0) segment = '92YeniMusteri';
 
             document.getElementById('res-segment').innerText = segment;
+
             const box = document.getElementById('segment-box');
-            if (segment.includes('Champions') || segment.includes('Sadik')) box.style.background = 'linear-gradient(135deg, #059669, #10B981)';
-            else if (segment.includes('Artilimasi') || segment.includes('Potansiyel')) box.style.background = 'linear-gradient(135deg, #2563EB, #3B82F6)';
-            else if (segment.includes('Pasiflesme') || segment.includes('Cagri') || segment.includes('Yeni')) box.style.background = 'linear-gradient(135deg, #D97706, #F59E0B)';
-            else box.style.background = 'linear-gradient(135deg, #DC2626, #EF4444)';
+            if (segment.includes('Champions') || segment.includes('Sadik')) {
+                box.style.background = 'linear-gradient(135deg, #059669, #10B981)';
+            } else if (segment.includes('Artilimasi') || segment.includes('Potansiyel')) {
+                box.style.background = 'linear-gradient(135deg, #2563EB, #3B82F6)';
+            } else if (segment.includes('Pasiflesme') || segment.includes('Cagri') || segment.includes('Yeni')) {
+                box.style.background = 'linear-gradient(135deg, #D97706, #F59E0B)';
+            } else {
+                box.style.background = 'linear-gradient(135deg, #DC2626, #EF4444)';
+            }
         }
     </script>
 </body>
